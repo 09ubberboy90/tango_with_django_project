@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "C:\\Users\\audof\\Anaconda3\\envs\\rango\\python.exe",
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "python.linting.pylintEnabled": true,
+    
+}
