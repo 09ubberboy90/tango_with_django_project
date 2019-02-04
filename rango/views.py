@@ -77,7 +77,7 @@ def add_category(request):
         # Render the form with error messages (if any).
         return render(request, 'rango/add_category.html', {'form': form})
 
-
+@restricted
 def add_page(request, category_name_slug):
     try:
         category = Category.objects.get(slug=category_name_slug)

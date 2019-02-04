@@ -8,9 +8,10 @@
 {% block body_block %}
     <div>
         This tutorial has been put together by Florent Audonnet.
-        <br/>You have visited that website : {{visits}} times
+        <br/>You have visits: {{visits}} times
     </div>
     <!-- Image -->
     <img src="{{MEDIA_URL}}cat.jpg" />
+    <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
 
 {% endblock body_block %}
