@@ -10,6 +10,10 @@ from django.contrib.auth import logout
 from datetime import datetime
 
 def show_category(request, category_name_slug):
+    print(category_name_slug)
+    print(
+        Category.objects.order_by('-likes')
+    )
     context_dict = {}
     try:
         # Can we find a category name slug with the given name?
@@ -34,6 +38,7 @@ def show_category(request, category_name_slug):
         context_dict['pages'] = None
     # Go render the response and return it to the client.
     return render(request, 'rango/category.html', context_dict)
+
 
 
 def index(request):
