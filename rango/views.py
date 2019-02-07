@@ -54,7 +54,7 @@ def about(request):
     context_dict['visits'] = request.session['visits']
     return render(request, 'rango/about.html', context_dict)
 
-
+@login_required
 def add_category(request):
     form = CategoryForm()
     # A HTTP POST?
@@ -69,13 +69,18 @@ def add_category(request):
             # But since the most recent category added is on the index page
             # Then we can direct the user back to the index page.
             return index(request)
-    else:
-        # The supplied form contained errors -
-        # just print them to the terminal.
-        print(form.errors)
+        else:
+            # The supplied form contained errors -
+            # just print them to the terminal.
+            print(form.errors)
         # Will handle the bad form, new form, or no form supplied cases.
         # Render the form with error messages (if any).
-        return render(request, 'rango/add_category.html', {'form': form})
+      # In any case (new form / error) render the form HTML
+    context = {
+        'form': form,
+    }
+    return render(request, 'rango/add_category.html', context=context)
+
 
 
 @login_required
